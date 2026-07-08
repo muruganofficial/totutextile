@@ -1,5 +1,10 @@
 {
   "version": 2,
+  "framework": null,
+  "env": {
+    "APP_URL": "https://textiletotu.vercel.app",
+    "ASSET_URL": "https://textiletotu.vercel.app"
+  },
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.9.0"
@@ -7,19 +12,18 @@
   },
   "routes": [
     { "src": "/build/(.*)", "dest": "/public/build/$1" },
+    { "src": "/vendor/(.*)", "dest": "/public/vendor/$1" },
+    { "src": "/favicon.ico", "dest": "/public/favicon.ico" },
+    { "src": "/favicon-16x16.png", "dest": "/public/favicon-16x16.png" },
+    { "src": "/favicon-32x32.png", "dest": "/public/favicon-32x32.png" },
+    { "src": "/apple-touch-icon.png", "dest": "/public/apple-touch-icon.png" },
+    { "src": "/android-chrome-192x192.png", "dest": "/public/android-chrome-192x192.png" },
+    { "src": "/android-chrome-512x512.png", "dest": "/public/android-chrome-512x512.png" },
+    { "src": "/site.webmanifest", "dest": "/public/site.webmanifest" },
+    { "src": "/logo.jpeg", "dest": "/public/logo.jpeg" },
+    { "src": "/robots.txt", "dest": "/public/robots.txt" },
     { "src": "/(.*)", "dest": "/api/index.php" }
   ],
-  "env": {
-    "APP_CONFIG_CACHE": "/tmp/config.php",
-    "APP_EVENTS_CACHE": "/tmp/events.php",
-    "APP_PACKAGES_CACHE": "/tmp/packages.php",
-    "APP_ROUTES_CACHE": "/tmp/routes.php",
-    "APP_SERVICES_CACHE": "/tmp/services.php",
-    "VIEW_COMPILED_PATH": "/tmp",
-    "CACHE_STORE": "database",
-    "LOG_CHANNEL": "stderr",
-    "SESSION_DRIVER": "database"
-  },
   "buildCommand": "npm install && npm run build",
   "outputDirectory": "public"
 }
